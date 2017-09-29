@@ -1,0 +1,29 @@
+/**
+ * CollectorUtil
+ * abstract:
+ * history:
+ * Created by mis_llg on 2017/9/8.
+ */
+
+public class CollectorUtil {
+
+    /**
+     * 包含重复元素与否
+     * 通过传入比较器，判断list中是否含有重复元素
+     * @param list
+     * @param comparator
+     * @return
+     */
+    public static boolean containDuplicate(List list, Comparator comparator) {
+        if (list.size() > 1) {
+            for (int i = 0; i < list.size() - 1; i++) {
+                for (int j = list.size() -1; j > i; j--) {
+                    if (0 == comparator.compare(list.get(i), list.get(j))) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+}
